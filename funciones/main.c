@@ -3,21 +3,32 @@
 
 void sumar1(void);
 void sumar2 (int, int);
+int sumar3(void);
 
 int main()
 {
+    int suma;
+    suma = sumar3();
+    printf("La suma es : %d", suma);
+    return 0;
+}
+
+int sumar3(void)
+{
     int numeroUno;
     int numeroDos;
+    int suma;
 
     printf("Ingrese el primer numero: ");
     scanf("%d", &numeroUno);
     printf("Ingrese el segundo numero: ");
     scanf("%d", &numeroDos);
 
-    sumar2(numeroUno, numeroDos);
+    suma = numeroUno + numeroDos;
     //sumar1();
-    return 0;
+    return suma;
 }
+
 
 void sumar2(int unNumero, int otroNumero)
 {
