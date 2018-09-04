@@ -4,7 +4,7 @@
 
 int main()
 {
-    int vector[T];
+    int vector[T] = {1,2,3,4,5,6,7,8,9,10};
     int i;
 
     for(i = 0; i < T; i++) //Cargar todos los subindices.
