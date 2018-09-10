@@ -4,14 +4,15 @@
 
 void inicializoArray (int vector[], int cantidad, int valorInicio);
 void mostrarArray(int vector[], int cantidad);
+void mostrarYCargar(int vector[], int cantidad, int valorInicio);
 
 int main()
 {
-    int vector[3];
+    int cantidad = 1000;
+    int vector[cantidad];
     int valorInicio = -1;
 
-    inicializoArray(vector, 3, valorInicio);
-    mostrarArray(vector, 3);
+    mostrarYCargar(vector, cantidad, valorInicio);
 
     return 0;
 }
@@ -30,4 +31,10 @@ void mostrarArray(int vector[], int cantidad)
     {
     printf("%d \n", vector[cantidad]);
     }
+}
+
+void mostrarYCargar(int vector[], int cantidad, int valorInicio)
+{
+    inicializoArray(vector, cantidad, valorInicio);
+    mostrarArray(vector, cantidad);
 }
