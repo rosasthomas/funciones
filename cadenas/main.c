@@ -7,8 +7,9 @@ int main()
    char cadena[20] = "Perro";
    char cadena2[50] = "Gato";
 
-   strcat(cadena2, cadena);
-
+   strcat(cadena2, cadena);//Concatenar
+    strupr()//Mayuscula
+    strlwr()//Minuscula
    puts(cadena2);
     return 0;
 }
@@ -18,7 +19,7 @@ int main()
     fflush(stdin);
     //scanf("%s", &cadena);
     gets(cadena);
-    //fgets(cadena, 20, stdin);
+    //fgets(cadena, 20, stdin);// para linux
 
     printf("%s", cadena);
 
