@@ -8,7 +8,7 @@ void mostrarYCargar(int vector[], int cantidad, int valorInicio);
 
 int main()
 {
-    int cantidad = 1000;
+    int cantidad = 10000;
     int vector[cantidad];
     int valorInicio = -1;
 
@@ -19,17 +19,19 @@ int main()
 
 void inicializoArray(int vector[], int cantidad, int valorInicio)
 {
-    for(; cantidad > 0; cantidad--)
+    int indice;
+    for(indice = 0 ; indice < cantidad; indice++)
     {
-        vector[cantidad] = valorInicio;
+        vector[indice] = valorInicio;
     }
 }
 
 void mostrarArray(int vector[], int cantidad)
 {
-     for(; cantidad > 0; cantidad--)
+    int indice;
+     for(indice = 0; indice < cantidad; indice++)
     {
-    printf("%d \n", vector[cantidad]);
+    printf("%d \n", vector[indice]);
     }
 }
 
