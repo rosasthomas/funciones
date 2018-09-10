@@ -4,15 +4,12 @@
 
 int main()
 {
-    char cadena[20] = "gato";
-    int estado;
+   char cadena[20] = "Perro";
+   char cadena2[50] = "Gato";
 
-    estado = stricmp(cadena, "gato"); //no es keySensitive
-    /*
-    strlwr(cadena);
-    estado = strcmp(cadena, "gato"); //Compara si los caracteres son iguales
-    */
-    printf("%d", estado);
+   strcat(cadena2, cadena);
+
+   puts(cadena2);
     return 0;
 }
 
@@ -39,4 +36,15 @@ int main()
 
     strcpy(cadena, "gato"); //Igual a cadena = "perro";
     printf("%s", cadena);
+
+
+     char cadena[20] = "gato";
+    int estado;
+
+    estado = stricmp(cadena, "gato"); //no es keySensitive
+    /*
+    strlwr(cadena);
+    estado = strcmp(cadena, "gato"); //Compara si los caracteres son iguales
+
+    printf("%d", estado);
 */
