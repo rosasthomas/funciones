@@ -15,7 +15,6 @@ int main()
     ingreso("Ingrese nombre: ", nombre);
     ingreso("Ingrese apellido: ", apellido);
     concatenar(nombre, apellido, nombreYApellido);
-
     mayuscula(nombreYApellido);
 
     printf("%s", nombreYApellido);
@@ -31,7 +30,7 @@ void ingreso(char texto[], char dato[])
 
 void concatenar(char nombre[], char apellido[], char nombreYApellido[])
 {
-    strcat(nombreYApellido, nombre);
+    strcpy(nombreYApellido, nombre);
     strcat(nombreYApellido, apellido);
 }
 
@@ -40,11 +39,15 @@ void mayuscula(char palabra[])
     /*palabra = strlwr(palabra);
     palabra[0] = strupr(palabra[0]);*/
     int i;
-    for(i = 0; i < 40; i++)
+    int auxiliar[25];
+
+    strcpy(auxiliar, palabra);
+    palabra = strupr(palabra);
+    for(i = 1; i < 20; i++)
     {
         if(palabra[i] == ' ')
         {
-            palabra[i] = strupr(palabra[i]);
+         strupr(palabra[i+1]);
         }
     }
 }
