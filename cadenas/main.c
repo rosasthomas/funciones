@@ -8,13 +8,16 @@ int main()
    char cadena2[50] = "Gato";
 
    strcat(cadena2, cadena);//Concatenar
-    strupr()//Mayuscula
-    strlwr()//Minuscula
+    //strupr()//Mayuscula
+    //strlwr()//Minuscula
+    //strncpy(cadena, cadena2, 3);//Copiar de manera segura indicando la cantidad de caracteres
    puts(cadena2);
     return 0;
 }
 
 /*
+    atoi = parseInt
+    Isdigit = analiza si el caracter es un numero
     printf("Ingrese texto: ");
     fflush(stdin);
     //scanf("%s", &cadena);
@@ -43,7 +46,7 @@ int main()
     int estado;
 
     estado = stricmp(cadena, "gato"); //no es keySensitive
-    /*
+/*
     strlwr(cadena);
     estado = strcmp(cadena, "gato"); //Compara si los caracteres son iguales
 

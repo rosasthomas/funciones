@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 void ingreso(char texto[], char dato[]);
 void mayuscula(char palabra[]);
@@ -10,10 +11,13 @@ int main()
 {
     char nombre[20];
     char apellido[20];
-    char nombreYApellido[40];
+    char nombreYApellido[41];
+    char buffer[1000];
 
-    ingreso("Ingrese nombre: ", nombre);
-    ingreso("Ingrese apellido: ", apellido);
+    ingreso("Ingrese nombre: ", buffer);
+    strcpy(nombre, buffer);
+    ingreso("Ingrese apellido: ", buffer);
+    strcpy(apellido, buffer);
     concatenar(nombre, apellido, nombreYApellido);
     mayuscula(nombreYApellido);
 
@@ -22,32 +26,43 @@ int main()
     return 0;
 }
 
-void ingreso(char texto[], char dato[])
+void ingreso(char texto[], char buffer[])
 {
     printf("%s", texto);
-    gets(dato);
+    fflush(stdin);
+    gets(buffer);
+    while(strlen(buffer) > 19)
+    {
+        printf("Error: %s", texto);
+        fflush(stdin);
+        gets(buffer);
+    }
 }
 
 void concatenar(char nombre[], char apellido[], char nombreYApellido[])
 {
-    strcpy(nombreYApellido, nombre);
-    strcat(nombreYApellido, apellido);
+    strcpy(nombreYApellido, apellido);
+    strcat(nombreYApellido, ", ");
+    strcat(nombreYApellido, nombre);
 }
 
 void mayuscula(char palabra[])
 {
-    /*palabra = strlwr(palabra);
-    palabra[0] = strupr(palabra[0]);*/
-    int i;
-    int auxiliar[25];
+    int indice;
 
-    strcpy(auxiliar, palabra);
-    palabra = strupr(palabra);
-    for(i = 1; i < 20; i++)
+    strlwr(palabra);
+    palabra[0] = toupper(palabra[0]);
+
+    for(indice = 0; indice < strlen(palabra); indice++)
     {
-        if(palabra[i] == ' ')
+        if(isspace(palabra[indice]))
         {
-         strupr(palabra[i+1]);
+            palabra[indice + 1] = toupper(palabra[indice + 1]);
         }
+        /* if(palabra[indice] == ' ')
+        {
+            palabra[indice + 1] = toupper(palabra[indice + 1]);
+        } */
+
     }
 }
