@@ -6,6 +6,7 @@
 void ingreso(char texto[], char dato[]);
 void mayuscula(char palabra[]);
 void concatenar(char[], char[], char[]);
+void copiar(char[], char[]);
 
 int main()
 {
@@ -15,9 +16,9 @@ int main()
     char buffer[1000];
 
     ingreso("Ingrese nombre: ", buffer);
-    strcpy(nombre, buffer);
+    copiar(buffer, nombre);
     ingreso("Ingrese apellido: ", buffer);
-    strcpy(apellido, buffer);
+    copiar(buffer, apellido);
     concatenar(nombre, apellido, nombreYApellido);
     mayuscula(nombreYApellido);
 
@@ -65,4 +66,9 @@ void mayuscula(char palabra[])
         } */
 
     }
+}
+
+void copiar(char buffer[], char palabra[])
+{
+    strcpy(palabra, buffer);
 }
