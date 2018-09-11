@@ -9,6 +9,10 @@ void mostrarAlumnos(int[], char[][21], int[], float[],int);
 -mostrar los alumnos aprobrados;
 -mostrar los alumnos que se llaman juan;
 -mostrar los alumnos cuyo nombre comience con P;
+-el alumno con mas nota(puede ser mas de uno)
+-el mas mediocre(nlegajo 100 nota 5 nombre pepe altura 1.75
+-ingresar un legajo y pertmitir la modificacion de la nota
+(transformar la carga de datos en una carga aleatoria)
 */
 int main()
 {
