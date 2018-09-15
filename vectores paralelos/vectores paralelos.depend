@@ -3,3 +3,14 @@
 	<stdio.h>
 	<stdlib.h>
 
+1537035189 source:c:\users\gustavo\desktop\funciones\vectores paralelos\main.c
+	<stdio.h>
+	<stdlib.h>
+	"bibliotecaRosas.h"
+
+1537035189 c:\users\gustavo\desktop\funciones\vectores paralelos\bibliotecarosas.h
+
+1536878136 source:c:\users\gustavo\desktop\funciones\vectores paralelos\bibliotecarosas.c
+	<stdio.h>
+	"bibliotecaRosas.h"
+
