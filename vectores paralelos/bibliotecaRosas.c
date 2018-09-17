@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "bibliotecaRosas.h"
+#include <string.h>
+#include <ctype.h>
 
 int getInt(char mensaje[])
 {
@@ -116,4 +118,39 @@ int buscarPrimerOcurrencia(int array[], int cantidad, int valor)
         }
     }
     return -1;
+}
+
+void ordenarPorNombre(int legajos[], char nombres[][21], int notas[], float alturas[],int tamaño)
+{
+    int auxInt;
+    char auxString[100];
+    float auxFloat;
+    int i;
+    int j;
+
+    for(i = 0; i < tamaño - 1 ; i++)
+    {
+        for(j = i + 1; j < tamaño; j++)
+        {
+            if(strcmp(nombres[i], nombres[j]) > 0)
+            {
+                strcpy(auxString, nombres[i]);
+                strcpy(nombres[i], nombres[j]);
+                strcpy(nombres[j], auxString);
+
+                auxInt = legajos[i];
+                legajos[i] = legajos[j];
+                legajos[j] = auxInt;
+
+                auxInt = notas[i];
+                notas[i] = notas[j];
+                notas[j] = auxInt;
+
+                auxInt = alturas[i];
+                alturas[i] = alturas[j];
+                alturas[j] = auxInt;
+            }
+        }
+    }
+
 }

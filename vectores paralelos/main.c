@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>+
+#include <ctype.h>
 #include "bibliotecaRosas.h"
 #define T 3
 #define valorVacio -1
@@ -22,10 +24,10 @@ int main()
     float alturas[T];
     char mail[T][50];
 
-    char auxiliarLegajosStr[];
-    char auxiliarNombresStr[];
-    char auxiliarNotasStr[];
-    char auxiliarAlturasStr[];
+    char auxiliarLegajosStr[T];
+    char auxiliarNombresStr[T][21];
+    char auxiliarNotasStr[T];
+    char auxiliarAlturasStr[T];
 
     int opcion = 0;
     int indiceLugarLibre;
