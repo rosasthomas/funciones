@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<string.h>
+#include <string.h>
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
+#include "ejercicioAlumnos.h"
 #define T 3
 
 
@@ -55,15 +56,18 @@ int main()
             mostrarListado(listado, T);
             break;
         case 4:
+            printf("APROBADOS");
+            mostrarAlumnoAprobado(listado, T);
             break;
         case 5:
+            printf("LOS JUANES");
+            mostrarAlumnoPorNombre(listado, T, "juan");
             break;
         case 6:
             break;
         case 7:
-            //Buscar maximo y minimo
-            //busqueda del maximo en el listado
-            //mostrar todos las personas con nota maxima
+            printf("MAYOR NOTA");
+            mostrarAlumnoMayorNota(listado, T);
             break;
         case 8:
             break;

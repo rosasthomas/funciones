@@ -4,14 +4,32 @@
 	<stdlib.h>
 	<string.h>
 
-1537215780 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.c
+1537219747 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"bibliotecaEstructuras.h"
 	"bibliotecaGetsYComprobaciones.h"
 
-1537215590 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.h
+1537219520 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.h
 
 1537214881 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.h
+
+1537219472 source:c:\users\gustavo\desktop\funciones\listaalumnos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"bibliotecaEstructuras.h"
+	"bibliotecaGetsYComprobaciones.h"
+	"ejercicioAlumnos.h"
+
+1537219855 c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.h
+
+1537220055 source:c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"bibliotecaEstructuras.h"
+	"bibliotecaGetsYComprobaciones.h"
+	"ejercicioAlumnos.h"
 

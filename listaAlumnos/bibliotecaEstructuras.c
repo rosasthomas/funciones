@@ -4,9 +4,9 @@
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
 
-void mostrarUnAlumno(sAlumno miAlumno)
+void mostrarUnAlumno(sAlumno listado[], int indice)
 {
-    printf("%d -- %s -- %f -- %d \n", miAlumno.legajo, miAlumno.nombre, miAlumno.altura, miAlumno.nota);
+    printf("%d -- %s -- %f -- %d \n", listado[indice].legajo, listado[indice].nombre, listado[indice].altura, listado[indice].nota);
 }
 
 sAlumno cargarUnAlumno()
@@ -47,7 +47,7 @@ void mostrarListado(sAlumno listadoAlumnos[], int tam)
     int i;
     for(i = 0; i < tam; i++)
     {
-        mostrarUnAlumno(listadoAlumnos[i]);
+        mostrarUnAlumno(listadoAlumnos, i);
     }
 }
 

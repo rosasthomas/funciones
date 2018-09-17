@@ -7,7 +7,7 @@ typedef struct
     char mail[50];
 }sAlumno;
 
-void mostrarUnAlumno(sAlumno);
+void mostrarUnAlumno(sAlumno[], int);
 sAlumno cargarUnAlumno();
 void cargarListado(sAlumno[], int);
 void mostrarListado(sAlumno[], int);
