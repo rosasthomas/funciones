@@ -1,28 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include "bibliotecaEstructuras.h"
+#include "bibliotecaGetsYComprobaciones.h"
 #define T 3
 
-typedef struct
-{
-    int legajos;
-    char nombres[21];
-    int notas;
-    float alturas;
-    char mail[50];
-}sAlumno;
-
-void mostrarUnAlumno(sAlumno);
-sAlumno cargarUnAlumno();
-void cargarListado(sAlumno[], int);
-void mostrarListado(sAlumno[], int);
-void ordenar(sAlumno[], int);
 
 int main()
 {
     sAlumno listado[T];
     int opcion = 0;
+    int indiceLugarLibre;
+    int indiceBusqueda;
 
+    inicializoEstructura(listado, T, -1);
+    cargarListado(listado, T);
     while(opcion != 10)
     {
         opcion = getInt("\n\n 1- ALTA \n 2- BAJA \n 3- ORDENAR \n 4- APROBADOS  \n 5- LOS JUANES \n 6- CON P \n 7- MAYOR NOTA"
@@ -30,11 +22,23 @@ int main()
         switch(opcion)
         {
         case 1:
+            indiceLugarLibre = buscarPrimerOcurrencia(listado, T, -1);
+            if(indiceLugarLibre == -1)
+            {
+                printf("No quedan espacios libres.");
+                break;
+            }
             printf("ALTA\n");
-            cargarListado(listado, T);
+            listado[indiceLugarLibre] = cargarUnAlumno();
             break;
         case 2:
-
+            printf("BAJA\n");
+            if (!getStringNumero("Ingrese el numero de legajo a dar de baja: ",))
+            {
+                printf("El legajo debe ser numerico.");
+                break;
+            }
+            indiceBusqueda = buscarPrimerOcurrencia(listado, T, )
             break;
         case 3:
             printf("ORDENANDO...");
@@ -69,67 +73,4 @@ int main()
     }
 
     return 0;
-}
-
-void mostrarUnAlumno(sAlumno miAlumno)
-{
-    printf("%d -- %s -- %f -- %d \n", miAlumno.legajo, miAlumno.nombre, miAlumno.altura, miAlumno.nota);
-}
-
-sAlumno cargarUnAlumno()
-{
-    sAlumno miAlumno;
-
-    printf("Ingrese legajo: ");
-    scanf("%d", &miAlumno.legajo);
-
-    printf("Ingrese nombre: ");
-    fflush(stdin);
-    gets(miAlumno.nombre);
-
-    printf("Ingrese nota: ");
-    scanf("%d", &miAlumno.nota);
-
-    printf("Ingrese altura: ");
-    scanf("%f", &miAlumno.altura);
-
-    return miAlumno;
-}
-
-void cargarListado(sAlumno listadoAlumnos[], int tam)
-{
-    int i;
-    for(i = 0; i < tam; i++)
-    {
-        listadoAlumnos[i] = cargarUnAlumno();
-    }
-}
-
-void mostrarListado(sAlumno listadoAlumnos[], int tam)
-{
-    int i;
-    for(i = 0; i < tam; i++)
-    {
-        mostrarUnAlumno(listadoAlumnos[i]);
-    }
-}
-
-void ordenar(sAlumno listado[], int tam)
-{
-    int i;
-    int j;
-    sAlumno auxAlumno;
-
-    for(i = 0; i < tam - 1; i++)
-    {
-        for(j = i + 1; j < tam; j++)
-        {
-            if(strcmp(listado[i].nombre, listado[j].nombre) > 0)
-            {
-                auxAlumno = listado[i];
-                listado[i] = listado[j];
-                listado[j] = auxAlumno;
-            }
-        }
-    }
 }
