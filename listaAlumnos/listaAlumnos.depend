@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1537215429 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1537215780 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"bibliotecaEstructuras.h"
+	"bibliotecaGetsYComprobaciones.h"
+
+1537215590 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.h
+
+1537214881 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.h
+

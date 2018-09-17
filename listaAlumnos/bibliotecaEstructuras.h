@@ -1,9 +1,9 @@
 typedef struct
 {
-    int legajos;
-    char nombres[21];
-    int notas;
-    float alturas;
+    int legajo;
+    char nombre[21];
+    int nota;
+    float altura;
     char mail[50];
 }sAlumno;
 
@@ -13,7 +13,7 @@ void cargarListado(sAlumno[], int);
 void mostrarListado(sAlumno[], int);
 void ordenar(sAlumno[], int);
 void inicializoEstructura(sAlumno[], int, int);
-int buscarPrimerOcurrencia(int[], int, int);
+int buscarPrimerOcurrencia(sAlumno[], int, int);
 
 
 

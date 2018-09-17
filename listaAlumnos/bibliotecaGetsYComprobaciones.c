@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
 int getInt(char mensaje[])
 {
     int auxiliar;
@@ -110,16 +114,15 @@ int getStringLetters(char mensaje[], char input[])
     return 0;
 }
 
-int getStringNumero(char string[])
+int getStringNumber(char mensaje[], char input[])
 {
-    int i = 0;
-    while(string[i] != '\0')
+    char aux[256];
+
+    getString(mensaje, aux);
+    if(isNumeric(aux))
     {
-        if(string[i] < '0' || string[i] > '9')
-        {
-            return 0;
-        }
-        i++;
+        strcpy(input, aux);
+        return 1;
     }
-    return 1;
+    return 0;
 }

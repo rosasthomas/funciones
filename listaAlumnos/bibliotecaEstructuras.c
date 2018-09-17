@@ -76,16 +76,16 @@ void inicializoEstructura(sAlumno listado[], int cantidad, int valorInicio)
     int indice;
     for(indice = 0 ; indice < cantidad; indice++)
     {
-        listado[indice].legajos = valorInicio;
+        listado[indice].legajo = valorInicio;
     }
 }
 
-int buscarPrimerOcurrencia(int listado[], int cantidad, int valor)
+int buscarPrimerOcurrencia(sAlumno listado[], int cantidad, int valor)
 {
     int i;
     for(i = 0; i < cantidad; i ++)
     {
-        if(listado[i].legajos == valor)
+        if(listado[i].legajo == valor)
         {
             return i;
         }
