@@ -5,6 +5,7 @@ typedef struct
     int nota;
     float altura;
     char mail[50];
+    int estado;
 }sAlumno;
 
 void mostrarUnAlumno(sAlumno[], int);

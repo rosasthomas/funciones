@@ -16,6 +16,12 @@ int main()
     int indiceBusqueda;
     char auxiliarLegajo[50];
 
+    int i;
+    for(i= 0; i < T; i++) //INICIALIZO EN -1 EL ESTADO PARA NO USAR EL LEGAJO COMO ESTADO
+    {
+        listado[i].estado = -1;
+    }
+
     inicializoEstructura(listado, T, -1);
 
     do
@@ -86,6 +92,7 @@ int main()
             system("pause");
             system("cls");
             printf("MODIFICAR\n\n");
+            mostrarListado(listado, T);
             if(!getStringNumber("Ingrese el legajo a modificar: ", auxiliarLegajo))
             {
                 printf("El legajo debe ser numerico.\n");
@@ -97,7 +104,7 @@ int main()
                 printf("El legajo no existe.\n");
                 break;
             }
-            listado[indiceBusqueda].nota = getInt("Ingrese la nueva nota: ");
+            listado[indiceBusqueda].nota = getInt("Ingrese la nueva nota: ");//FALTA PREGUNTAR SI ESTA SEGURO
             break;
         case 10:
             break;
