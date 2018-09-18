@@ -47,7 +47,10 @@ void mostrarListado(sAlumno listadoAlumnos[], int tam)
     int i;
     for(i = 0; i < tam; i++)
     {
-        mostrarUnAlumno(listadoAlumnos, i);
+        if(listadoAlumnos[i].legajo != -1)
+        {
+            mostrarUnAlumno(listadoAlumnos, i);
+        }
     }
 }
 

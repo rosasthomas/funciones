@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
 #include "ejercicioAlumnos.h"
@@ -16,10 +17,10 @@ int main()
     char auxiliarLegajo[50];
 
     inicializoEstructura(listado, T, -1);
-    cargarListado(listado, T);
-    while(opcion != 10)
+
+    do
     {
-        opcion = getInt("\n\n 1- ALTA \n 2- BAJA \n 3- ORDENAR \n 4- APROBADOS  \n 5- LOS JUANES \n 6- CON P \n 7- MAYOR NOTA"
+        opcion = getInt("\n 1- ALTA \n 2- BAJA \n 3- ORDENAR \n 4- APROBADOS  \n 5- LOS JUANES \n 6- CON P \n 7- MAYOR NOTA"
            "\n 8- EL MAS MEDIOCRE \n 9- MODIFICAR \n 10- SALIR \n Ingrese una opcion: ");
         switch(opcion)
         {
@@ -27,69 +28,83 @@ int main()
             indiceLugarLibre = buscarPrimerOcurrencia(listado, T, -1);
             if(indiceLugarLibre == -1)
             {
-                printf("No quedan espacios libres.");
+                printf("\nNo quedan espacios libres.\n");
                 break;
             }
-            printf("ALTA\n");
+            system("pause");
+            system("cls");
+            printf("ALTA\n\n");
             listado[indiceLugarLibre] = cargarUnAlumno();
             break;
         case 2:
-            printf("BAJA\n");
+            system("pause");
+            system("cls");
+            printf("BAJA\n\n");
             if (!getStringNumber("Ingrese el numero de legajo a dar de baja: ", auxiliarLegajo))
             {
-                printf("El legajo debe ser numerico.");
+                printf("El legajo debe ser numerico.\n");
                 break;
             }
             indiceBusqueda = buscarPrimerOcurrencia(listado, T, atoi(auxiliarLegajo));
             if(indiceBusqueda == -1)
             {
-                printf("No se encuentra ese legajo.");
+                printf("No se encuentra ese legajo.\n");
                 break;
             }
             listado[indiceBusqueda].legajo = -1;
             break;
         case 3:
-            printf("ORDENANDO...");
             ordenar(listado, T);
             system("pause");
             system("cls");
+            printf("ORDENANDO...\n\n");
             mostrarListado(listado, T);
             break;
         case 4:
-            printf("APROBADOS");
+            system("pause");
+            system("cls");
+            printf("APROBADOS\n\n");
             mostrarAlumnoAprobado(listado, T);
             break;
         case 5:
-            printf("LOS JUANES");
+            system("pause");
+            system("cls");
+            printf("LOS JUANES\n\n");
             mostrarAlumnoPorNombre(listado, T, "juan");
             break;
         case 6:
             break;
         case 7:
-            printf("MAYOR NOTA");
+            system("pause");
+            system("cls");
+            printf("MAYOR NOTA\n");
             mostrarAlumnoMayorNota(listado, T);
             break;
         case 8:
             break;
         case 9:
-            printf("MODIFICAR\n");
+            system("pause");
+            system("cls");
+            printf("MODIFICAR\n\n");
             if(!getStringNumber("Ingrese el legajo a modificar: ", auxiliarLegajo))
             {
-                printf("El legajo debe ser numerico.");
+                printf("El legajo debe ser numerico.\n");
                 break;
             }
             indiceBusqueda = buscarPrimerOcurrencia(listado, T, atoi(auxiliarLegajo));
             if(indiceBusqueda == -1)
             {
-                printf("El legajo no existe.");
+                printf("El legajo no existe.\n");
                 break;
             }
-            listado[indiceBusqueda].nota = getInt("Ingrese la nueva nota.");
+            listado[indiceBusqueda].nota = getInt("Ingrese la nueva nota: ");
             break;
         case 10:
             break;
         }
-    }
+        system("pause");
+            system("cls");
+    }while(opcion != 10);
 
     return 0;
 }

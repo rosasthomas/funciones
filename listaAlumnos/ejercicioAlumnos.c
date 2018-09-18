@@ -11,7 +11,7 @@ void mostrarAlumnoAprobado(sAlumno listado[], int tam)
 
     for(i = 0; i < tam; i++)
     {
-        if(listado[i].nota > 6)
+        if(listado[i].nota > 6 && listado[i].legajo != -1)
         {
             mostrarUnAlumno(listado, i);
         }
