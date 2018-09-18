@@ -33,7 +33,7 @@
 	"bibliotecaGetsYComprobaciones.h"
 	"ejercicioAlumnos.h"
 
-1537274616 source:c:\users\alumno\desktop\funciones\listaalumnos\bibliotecaestructuras.c
+1537276657 source:c:\users\alumno\desktop\funciones\listaalumnos\bibliotecaestructuras.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -59,7 +59,7 @@
 
 1537272490 c:\users\alumno\desktop\funciones\listaalumnos\ejercicioalumnos.h
 
-1537274660 source:c:\users\alumno\desktop\funciones\listaalumnos\main.c
+1537274882 source:c:\users\alumno\desktop\funciones\listaalumnos\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
