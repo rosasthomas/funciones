@@ -14,6 +14,7 @@ int getStringNumber(char[], char[]);
 
 int getIntOnly(char[]);
 void getCharOnly(char[], char[]);
+float getFloatOnly(char[]);
 
 
 

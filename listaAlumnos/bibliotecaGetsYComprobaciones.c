@@ -61,7 +61,7 @@ int isAlphanumeric(char array[])
     while(array[i] != '\0' )
     {
         if(array[i] != ' ' && (array[i] < 'a' || array[i] > 'z') && (array[i] < 'A' || array[i] > 'Z') &&
-                (array[i] <  '0' || array[i] > '9') && array[i] == '@')
+                (array[i] <  '0' || array[i] > '9'))
         {
             return 0;
         }
@@ -145,10 +145,9 @@ int getIntOnly(char mensaje[])
         {
             printf("\n(Debe ser un numero entero.)\n\n");
             flag = 0;
-
+            system("pause");
+            system("cls");
         }
-        system("pause");
-        system("cls");
     }
     while(flag == 0);
 
@@ -172,7 +171,37 @@ void getCharOnly(char mensaje[], char input[])
         {
             printf("\nDebe ser solo letras.\n");
             flag = 0;
+            system("pause");
+            system("cls");
         }
     }
     while(flag == 0);
  }
+
+ float getFloatOnly(char mensaje[])
+{
+    char aux[256];
+    float number;
+    int flag = 0;
+
+    do
+    {
+        getString(mensaje, aux);
+        if(isNumeric(aux))
+        {
+            number = atoi(aux);
+            flag = 1;
+        }
+        else
+        {
+            printf("\n(Debe ser un numero.)\n\n");
+            flag = 0;
+
+        }
+        system("pause");
+        system("cls");
+    }
+    while(flag == 0);
+
+    return number;
+}

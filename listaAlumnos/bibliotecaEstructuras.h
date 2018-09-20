@@ -14,8 +14,5 @@ void cargarListado(sAlumno[], int);
 void mostrarListado(sAlumno[], int);
 void ordenar(sAlumno[], int);
 void inicializoEstructura(sAlumno[], int, int);
-int buscarPrimerOcurrencia(sAlumno[], int, int);
-
-
-
-
+int buscarPrimerOcurrenciaEstado(sAlumno[], int, int);
+int buscarPrimerOcurrenciaLegajo(sAlumno[], int, int);

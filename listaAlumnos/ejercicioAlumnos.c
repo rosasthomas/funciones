@@ -11,7 +11,7 @@ void mostrarAlumnoAprobado(sAlumno listado[], int tam)
 
     for(i = 0; i < tam; i++)
     {
-        if(listado[i].nota > 6 && listado[i].legajo != -1)
+        if(listado[i].nota > 6 && listado[i].estado != -1)
         {
             mostrarUnAlumno(listado, i);
         }
@@ -23,7 +23,7 @@ void mostrarAlumnoPorNombre(sAlumno listado[], int tam, char nombre[])
 
     for(i = 0; i < tam; i++)
     {
-        if(listado[i].nombre == nombre)
+        if(listado[i].nombre == nombre && listado[i].estado != -1)
         {
             mostrarUnAlumno(listado, i);
         }
@@ -42,7 +42,7 @@ void mostrarAlumnoMayorNota(sAlumno listado[], int tam)
         }
     for(i = 0; i < tam; i++)
     {
-        if(listado[i].nota == max)
+        if(listado[i].nota == max && listado[i].estado != -1)
         {
             mostrarUnAlumno(listado, i);
         }

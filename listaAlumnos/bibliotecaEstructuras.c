@@ -6,22 +6,19 @@
 
 void mostrarUnAlumno(sAlumno listado[], int indice)
 {
-    printf("%d -- %s -- %f -- %d \n", listado[indice].legajo, listado[indice].nombre, listado[indice].altura, listado[indice].nota);
+    printf("%d -- %s -- %f -- %d -- %s\n", listado[indice].legajo, listado[indice].nombre, listado[indice].altura, listado[indice].nota, listado[indice].mail);
 }
 
 sAlumno cargarUnAlumno()
 {
     sAlumno miAlumno;
 
-    printf("Ingrese legajo: ");
-    scanf("%d", &miAlumno.legajo);
+    miAlumno.legajo = getIntOnly("Ingrese legajo: ");
 
-    printf("Ingrese nombre: ");
     fflush(stdin);
-    gets(miAlumno.nombre);
+    getCharOnly("Ingrese nombre: ", miAlumno.nombre);
 
-    printf("Ingrese nota: ");
-    scanf("%d", &miAlumno.nota);
+    miAlumno.nota = getIntOnly("Ingrese nota: ");
 
     printf("Ingrese altura: ");
     scanf("%f", &miAlumno.altura);
@@ -29,6 +26,8 @@ sAlumno cargarUnAlumno()
     printf("Ingrese mail: ");
     fflush(stdin);
     gets(miAlumno.mail);
+
+    miAlumno.estado = 1;
 
     return miAlumno;
 }
@@ -47,7 +46,7 @@ void mostrarListado(sAlumno listadoAlumnos[], int tam)
     int i;
     for(i = 0; i < tam; i++)
     {
-        if(listadoAlumnos[i].legajo != -1)
+        if(listadoAlumnos[i].estado != -1)
         {
             mostrarUnAlumno(listadoAlumnos, i);
         }
@@ -79,11 +78,26 @@ void inicializoEstructura(sAlumno listado[], int cantidad, int valorInicio)
     int indice;
     for(indice = 0 ; indice < cantidad; indice++)
     {
-        listado[indice].legajo = valorInicio;
+        listado[indice].estado = valorInicio;
     }
 }
 
-int buscarPrimerOcurrencia(sAlumno listado[], int cantidad, int valor)
+int buscarPrimerOcurrenciaEstado(sAlumno listado[], int cantidad, int valor)
+{
+    int index = -1;
+    int i;
+    for(i = 0; i < cantidad; i ++)
+    {
+        if(listado[i].estado == valor)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int buscarPrimerOcurrenciaLegajo(sAlumno listado[], int cantidad, int valor)
 {
     int index = -1;
     int i;
