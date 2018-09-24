@@ -3,6 +3,7 @@
 #include<string.h>
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
+#include "ejercicioAlumnos.h"
 
 void mostrarUnAlumno(sAlumno listado[], int indice)
 {
@@ -103,11 +104,30 @@ int buscarPrimerOcurrenciaLegajo(sAlumno listado[], int cantidad, int valor)
     int i;
     for(i = 0; i < cantidad; i ++)
     {
-        if(listado[i].legajo == valor)
+        if(listado[i].estado != -1 && listado[i].legajo == valor)
         {
             index = i;
             break;
         }
     }
     return index;
+}
+
+int altaDeAlumno(sAlumno listado[])
+{
+    int bandera;
+    int indiceLugarLibre;
+
+    indiceLugarLibre = buscarPrimerOcurrenciaEstado(listado, T, VACIO);
+    if(indiceLugarLibre == VACIO)
+    {
+        printf("\nNo quedan espacios libres.\n");
+        bandera = 0;
+    }
+    system("cls");
+    printf("ALTA\n\n");
+    listado[indiceLugarLibre] = cargarUnAlumno();
+    bandera = 1;
+
+    return bandera;
 }

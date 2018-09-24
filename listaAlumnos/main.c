@@ -6,16 +6,15 @@
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
 #include "ejercicioAlumnos.h"
-#define T 3
 
 int main()
 {
     sAlumno listado[T];
     int opcion = 0;
-    int indiceLugarLibre;
     int indiceBusqueda;
-    char auxiliarLegajo[50];
+    int auxiliarLegajo;
     int auxiliarNuevaNota;
+    int flagAlta;
 
     inicializoEstructura(listado, T, -1);
 
@@ -26,26 +25,18 @@ int main()
         switch(opcion)
         {
         case 1:
-            indiceLugarLibre = buscarPrimerOcurrenciaEstado(listado, T, -1);
-            if(indiceLugarLibre == -1)
+            flagAlta = altaDeAlumno(listado);
+            if(flagAlta == 1)
             {
-                printf("\nNo quedan espacios libres.\n");
-                break;
+                printf("\nSe cargo satisfactoriamente");
             }
-            system("cls");
-            printf("ALTA\n\n");
-            listado[indiceLugarLibre] = cargarUnAlumno();
             break;
         case 2:
             system("cls");
             printf("BAJA\n\n");
             mostrarListado(listado, T);
-            if (!getStringNumber("\nIngrese el numero de legajo a dar de baja: ", auxiliarLegajo))
-            {
-                printf("El legajo debe ser numerico.\n");
-                break;
-            }
-            indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, atoi(auxiliarLegajo));
+            auxiliarLegajo = getIntOnly("\nIngrese el numero de legajo a dar de baja: ");
+            indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, auxiliarLegajo);
             if(indiceBusqueda == -1)
             {
                 printf("No se encuentra ese legajo.\n");
@@ -94,12 +85,8 @@ int main()
             system("cls");
             printf("MODIFICAR\n\n");
             mostrarListado(listado, T);
-            if(!getStringNumber("\nIngrese el legajo a modificar: ", auxiliarLegajo))
-            {
-                printf("El legajo debe ser numerico.\n");
-                break;
-            }
-            indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, atoi(auxiliarLegajo));
+            auxiliarLegajo = getIntOnly("\nIngrese el legajo a modificar: ");
+            indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, auxiliarLegajo);
             if(indiceBusqueda == -1)
             {
                 printf("\nEl legajo no existe.\n");
