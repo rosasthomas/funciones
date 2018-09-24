@@ -131,3 +131,23 @@ int altaDeAlumno(sAlumno listado[])
 
     return bandera;
 }
+
+void inicializarAlumnos(sAlumno listado[], int tam)
+{
+    int legajo[3] = {5,9,7};
+    char nombre[3][21] = {"Juan", "Maria", "Luis"};
+    int nota[3] = {3,9,7};
+    float altura[3] = {1.7,2.0,1.6};
+    char mail[3][50] = {"asd@asd.com", };
+
+    int i;
+    for(i = 0; i < 3; i++)
+    {
+        listado[i].legajo = legajo[i];
+        strcpy(listado[i].nombre, nombre[i]);
+        listado[i].nota = nota[i];
+        listado[i].altura = altura[i];
+        strcpy(listado[i].mail, mail[i]);
+        listado[i].estado = 1;
+    }
+}
