@@ -23,7 +23,7 @@ void mostrarAlumnoPorNombre(sAlumno listado[], int tam, char nombre[])
 
     for(i = 0; i < tam; i++)
     {
-        if(listado[i].nombre == nombre && listado[i].estado != -1)
+        if(strcmp(listado[i].nombre, nombre) == 0 && listado[i].estado != -1)
         {
             mostrarUnAlumno(listado, i);
         }
