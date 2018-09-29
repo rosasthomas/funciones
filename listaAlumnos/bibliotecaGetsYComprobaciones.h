@@ -6,6 +6,7 @@ int isNumeric(char[]);
 int isPhone(char[]);
 int isAlphanumeric(char[]);
 int isLetters(char[]);
+int isFloat(char[]);
 
 void getString(char[], char[]);
 

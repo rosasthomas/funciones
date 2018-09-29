@@ -17,4 +17,7 @@ void inicializoEstructura(sAlumno[], int, int);
 int buscarPrimerOcurrenciaEstado(sAlumno[], int, int);
 int buscarPrimerOcurrenciaLegajo(sAlumno[], int, int);
 int altaDeAlumno(sAlumno[]);
+int bajaDeAlumno(sAlumno[]);
+int ModificacionDeAlumno(sAlumno[]);
+
 void inicializarAlumnos(sAlumno[], int);

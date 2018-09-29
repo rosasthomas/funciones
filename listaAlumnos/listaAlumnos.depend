@@ -1,21 +1,24 @@
 # depslib dependency file v1.0
-1537475125 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.c
+1538178286 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1537473909 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.c
+1538179108 source:c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
+	<conio.h>
 	"bibliotecaEstructuras.h"
 	"bibliotecaGetsYComprobaciones.h"
+	"ejercicioAlumnos.h"
 
-1537473069 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.h
+1538178831 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecaestructuras.h
 
-1537469904 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.h
+1538177097 c:\users\gustavo\desktop\funciones\listaalumnos\bibliotecagetsycomprobaciones.h
 
-1537474075 source:c:\users\gustavo\desktop\funciones\listaalumnos\main.c
+1538179113 source:c:\users\gustavo\desktop\funciones\listaalumnos\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -25,9 +28,9 @@
 	"bibliotecaGetsYComprobaciones.h"
 	"ejercicioAlumnos.h"
 
-1537469053 c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.h
+1538173563 c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.h
 
-1537474278 source:c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.c
+1538173563 source:c:\users\gustavo\desktop\funciones\listaalumnos\ejercicioalumnos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

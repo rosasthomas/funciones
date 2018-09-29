@@ -94,6 +94,7 @@ int isPhone(char array[])
     return 0;
 }
 
+
 void getString(char mensaje[], char input[])
 {
     printf("%s", mensaje);
@@ -150,12 +151,11 @@ int getIntOnly(char mensaje[])
         }
     }
     while(flag == 0);
-
     return number;
 }
 
 void getCharOnly(char mensaje[], char input[])
- {
+{
     char aux[500];
     int flag = 0;
 
@@ -176,32 +176,53 @@ void getCharOnly(char mensaje[], char input[])
         }
     }
     while(flag == 0);
- }
+}
 
- float getFloatOnly(char mensaje[])
+int isFloat(char str[])
+{
+   int i=0;
+   int cantidadPuntos=0;
+   int flag = 1;
+   while(str[i] != '\0')
+   {
+       if (str[i] == '.' && cantidadPuntos == 0)
+       {
+           cantidadPuntos++;
+           i++;
+           continue;
+       }
+       if(str[i] < '0' || str[i] > '9')
+       {
+           flag = 0;
+       }
+       i++;
+   }
+
+   return flag;
+}
+
+float getFloatOnly(char mensaje[])
 {
     char aux[256];
-    float number;
+    float num;
     int flag = 0;
 
     do
     {
         getString(mensaje, aux);
-        if(isNumeric(aux))
+        if(isFloat(aux))
         {
-            number = atoi(aux);
+            num = atof(aux);
             flag = 1;
         }
         else
         {
             printf("\n(Debe ser un numero.)\n\n");
             flag = 0;
-
+            system("pause");
+            system("cls");
         }
-        system("pause");
-        system("cls");
     }
     while(flag == 0);
-
-    return number;
+    return num;
 }

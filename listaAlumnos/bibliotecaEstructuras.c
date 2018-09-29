@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include <ctype.h>
+#include <conio.h>
 #include "bibliotecaEstructuras.h"
 #include "bibliotecaGetsYComprobaciones.h"
 #include "ejercicioAlumnos.h"
@@ -21,8 +23,7 @@ sAlumno cargarUnAlumno()
 
     miAlumno.nota = getIntOnly("Ingrese nota: ");
 
-    printf("Ingrese altura: ");
-    scanf("%f", &miAlumno.altura);
+    miAlumno.altura = getFloatOnly("Ingrese altura: ");
 
     printf("Ingrese mail: ");
     fflush(stdin);
@@ -150,4 +151,63 @@ void inicializarAlumnos(sAlumno listado[], int tam)
         strcpy(listado[i].mail, mail[i]);
         listado[i].estado = 1;
     }
+}
+
+int bajaDeAlumno(sAlumno listado[])
+{
+    int auxiliarLegajo;
+    int indiceBusqueda;
+    int flag;
+
+    system("cls");
+    printf("BAJA\n\n");
+    mostrarListado(listado, T);
+    auxiliarLegajo = getIntOnly("\nIngrese el numero de legajo a dar de baja: ");
+    indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, auxiliarLegajo);
+    if(indiceBusqueda == -1)
+    {
+        printf("No se encuentra ese legajo.\n");
+        flag = 0;
+    }
+    else
+    {
+        printf("\nEsta seguro que desea dar de baja?(s/n): ");
+        if(getch() == 's')
+        {
+            listado[indiceBusqueda].estado = -1;
+            flag = 1;
+        }
+    }
+    return flag;
+}
+
+int ModificacionDeAlumno(sAlumno listado[])
+{
+    int auxiliarLegajo;
+    int indiceBusqueda;
+    int auxiliarNuevaNota;
+    int flag;
+
+    system("cls");
+    printf("MODIFICAR\n\n");
+    mostrarListado(listado, T);
+    auxiliarLegajo = getIntOnly("\nIngrese el legajo a modificar: ");
+    indiceBusqueda = buscarPrimerOcurrenciaLegajo(listado, T, auxiliarLegajo);
+    if(indiceBusqueda == -1)
+    {
+        printf("\nEl legajo no existe.\n");
+        system("pause");
+        flag = 0;
+    }
+    else
+    {
+    auxiliarNuevaNota = getInt("Ingrese la nueva nota: ");
+    printf("\nEsta seguro que desea cambiar la nota?(s/n): ");
+    if(getch() == 's')
+    {
+        listado[indiceBusqueda].nota = auxiliarNuevaNota;
+        flag = 1;
+    }
+    }
+    return flag;
 }
