@@ -154,7 +154,7 @@ int getIntOnly(char mensaje[])
     return number;
 }
 
-void getCharOnly(char mensaje[], char input[])
+void getStringOnly(char mensaje[], char input[])
 {
     char aux[500];
     int flag = 0;

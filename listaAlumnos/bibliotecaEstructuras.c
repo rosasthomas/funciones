@@ -19,7 +19,7 @@ sAlumno cargarUnAlumno()
     miAlumno.legajo = getIntOnly("Ingrese legajo: ");
 
     fflush(stdin);
-    getCharOnly("Ingrese nombre: ", miAlumno.nombre);
+    getStringOnly("Ingrese nombre: ", miAlumno.nombre);
 
     miAlumno.nota = getIntOnly("Ingrese nota: ");
 
@@ -181,7 +181,7 @@ int bajaDeAlumno(sAlumno listado[])
     return flag;
 }
 
-int ModificacionDeAlumno(sAlumno listado[])
+int modificacionDeAlumno(sAlumno listado[])
 {
     int auxiliarLegajo;
     int indiceBusqueda;

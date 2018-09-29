@@ -77,7 +77,7 @@ int main()
         case 8:
             break;
         case 9:
-            flagModificacion = ModificacionDeAlumno(listado);
+            flagModificacion = modificacionDeAlumno(listado);
             if(flagModificacion== 1)
             {
                 system("cls");
