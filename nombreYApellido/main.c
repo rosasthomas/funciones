@@ -10,6 +10,14 @@ void copiar(char[], char[]);
 
 int main()
 {
+
+    printf("%s", nombreYApellido);
+
+    return 0;
+}
+
+void getNameLastName(sdirector listDirec[])
+{
     char nombre[20];
     char apellido[20];
     char nombreYApellido[41];
@@ -22,9 +30,6 @@ int main()
     concatenar(nombre, apellido, nombreYApellido);
     mayuscula(nombreYApellido);
 
-    printf("%s", nombreYApellido);
-
-    return 0;
 }
 
 void ingreso(char texto[], char buffer[])

@@ -13,17 +13,18 @@ typedef struct
     int id;
     int nombre[50];
     sFecha nacimiento;
-    sFecha ingreso;
 }sEmpleado;
 
 int main()
 {
-    sEmpleado miEmpleado;
+    sEmpleado miEmpleado[2];
 
-    miEmpleado.id = 25;
-    miEmpleado.nacimiento.dia = 20;
-    miEmpleado.nacimiento.mes = 10;
-    miEmpleado.nacimiento.anio = 2000;
+    miEmpleado[0].id = 25;
+    miEmpleado[0].nacimiento.dia = 20;
+    miEmpleado[0].nacimiento.mes = 10;
+    miEmpleado[0].nacimiento.anio = 2000;
+
+    printf("%d/%d/%d", miEmpleado[0].nacimiento.dia,miEmpleado[0].nacimiento.mes, miEmpleado[0].nacimiento.anio);
 
     return 0;
 }
