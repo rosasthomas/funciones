@@ -9,27 +9,34 @@ typedef struct
     int edad;
 } sPersona;
 
-sPersona* newPerson(char nombre[], int edad);
+sPersona* newPerson(void);
+int sPersona_setName(sPersona* this, char* nombre);
+char* sPersona_getName(sPersona* this);
+int sPersona_setEdad(sPersona* this, int edad);
+int sPersona_getEdad(sPersona* this);
+void mostrar(sPersona* persona);
 
 int main()
 {
     sPersona* persona;
+    persona = newPerson();
 
-    char nombre[50];
-    int edad;
+    if(persona)
+    {
+        sPersona_setName(persona, "Juan");
+        sPersona_setEdad(persona, 13);
+        mostrar(persona);
+    }
+    else
+    {
+        printf("Error");
+    }
 
-    printf("ingrese nombre: ");
-    gets(nombre);
-    printf("Ingrese edad: ");
-    scanf("%d", &edad);
 
-    persona = newPerson(nombre, edad);
-
-    printf("Nombre: %s -- Edad: %d", persona->nombre, persona->edad);
     return 0;
 }
 
-sPersona* newPerson(char nombre[], int edad)
+sPersona* newPerson()
 {
     sPersona* persona;
 
@@ -42,13 +49,58 @@ sPersona* newPerson(char nombre[], int edad)
 
     persona = (sPersona*) calloc(sizeof(sPersona),1);
 
-    if(persona != NULL)
+    return persona;
+}
+
+int sPersona_setName(sPersona* this, char* nombre)
+{
+    int estado = 0;
+    if(this != NULL)
     {
-        persona->edad = edad;
-        strcpy(persona->nombre, nombre);
+        estado = 1;
+        strcpy(this->nombre, nombre);
     }
 
-    return persona;
+    return estado;
+}
+char* sPersona_getName(sPersona* this)
+{
+    char* nombre = "-1";
+
+    if(this != NULL)
+    {
+        strcpy(nombre, this -> nombre);
+    }
+
+    return nombre;
+}
+
+int sPersona_setEdad(sPersona* this, int edad)
+{
+    int estado = 0;
+    if(this != NULL)
+    {
+        estado = 1;
+        this->edad = edad;
+    }
+
+    return estado;
+}
+int sPersona_getEdad(sPersona* this)
+{
+    int edad = 0;
+
+    if(this != NULL)
+    {
+        this -> edad = edad;
+    }
+
+    return edad;
+}
+
+void mostrar(sPersona* this)
+{
+    printf("Nombre: %s -- Edad: %d", this->nombre, this->edad);
 }
 
 /*
