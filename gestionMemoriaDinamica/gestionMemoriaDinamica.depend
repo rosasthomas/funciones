@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1540220564 source:c:\users\alumno\desktop\funciones\gestionmemoriadinamica\main.c
+1540301254 source:c:\users\alumno\desktop\funciones\gestionmemoriadinamica\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 
