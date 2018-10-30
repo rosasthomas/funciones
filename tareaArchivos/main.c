@@ -1,13 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int sPersona_setName(char , char* nombre);
-char* sPersona_getName(char nombre);
-int sPersona_setId(char, int* id);
-int sPersona_getId(int id);
-void mostrar(char* nombre, char* apellido, int* id, char* genero);
-char* newChar();
-int* newInt();
+typedef struct
+{
+    char nombre[50];
+    char apellido[50];
+    int id;
+    char genero[10];
+} sPersona;
+
+sPersona* newPerson(void);
+int sPersona_setName(sPersona* this, char* nombre);
+char* sPersona_getName(sPersona* this);
+int sPersona_setLastName(sPersona* this, char* apellido);
+char* sPersona_getLastName(sPersona* this);
+int sPersona_setId(sPersona* this, int id);
+int sPersona_getId(sPersona* this);
+void mostrar(sPersona* persona);
+int sPersona_setGender(sPersona* this, char* id);
+char* sPersona_getGender(sPersona* this);
 
 int main()
 {
@@ -15,56 +27,51 @@ int main()
     char apellidoAux[100];
     char idAux[100];
     char generoAux[10];
-    char* nombre;
-    char* apellido;
-    char* id;
-    char* genero;
+
+    sPersona* persona;
+
+    persona = newPerson();
 
     FILE * pFile;
 
     pFile = fopen ("personas.csv", "r");
 
+    while(!feof(pFile))
+   {
     fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", idAux, nombreAux, apellidoAux, generoAux);
 
-    sPersona_setName(nombreAux, nombre);
-    sPersona_setName(apellidoAux, apellido);
-    sPersona_setName(generoAux, genero);
-    sPersona_setName(idAux, id);
+    sPersona_setName(persona, nombreAux);
+    sPersona_setGender(persona, generoAux);
+    sPersona_setLastName(persona, apellidoAux);
+    sPersona_setId(persona, atoi(idAux));
 
-    mostrar(nombre, apellido, id, genero);
-
+    mostrar(persona);
+   }
+    fclose(pFile);
     return 0;
 }
 
-char* newPerson()
+sPersona* newPerson()
 {
-    char dato;
+    sPersona* persona;
 
-    dato = (char*) calloc(sizeof(char),1);
+    persona = (sPersona*) calloc(sizeof(sPersona),1);
 
-    return dato;
+    return persona;
 }
 
-int* newPerson()
-{
-    char dato;
-
-    dato = (int*) calloc(sizeof(int),1);
-
-    return dato;
-}
-
-int sPersona_setName(char auxNombre[], char* nombre)
+int sPersona_setName(sPersona* this, char* nombre)
 {
     int estado = 0;
-    if(nombre != NULL)
+    if(this != NULL)
     {
         estado = 1;
-        strcpy(nombre, auxNombre);
+        strcpy(this->nombre, nombre);
     }
 
     return estado;
 }
+
 char* sPersona_getName(sPersona* this)
 {
     char* nombre = "-1";
@@ -76,31 +83,78 @@ char* sPersona_getName(sPersona* this)
 
     return nombre;
 }
-
-int sPersona_setId(int idAux, int* id)
+int sPersona_setLastName(sPersona* this, char* apellido)
 {
     int estado = 0;
-    if(id != NULL)
+    if(this != NULL)
     {
         estado = 1;
-        id = idAux;
+        strcpy(this->apellido, apellido);
     }
 
     return estado;
 }
-int sPersona_getEdad(sPersona* this)
+
+char* sPersona_getLastName(sPersona* this)
 {
-    int edad = 0;
+    char* apellido = "-1";
 
     if(this != NULL)
     {
-        this -> edad = edad;
+        strcpy(apellido, this -> apellido);
     }
 
-    return edad;
+    return apellido;
 }
 
-void mostrar(char* nombre, char* apellido, int* id, char* genero)
+int sPersona_setId(sPersona* this, int id)
 {
-       printf("%s - %s, %s - %s\n", id, nombre, apellido, genero);
+    int estado = 0;
+    if(this != NULL)
+    {
+        estado = 1;
+        this->id = id;
+    }
+
+    return estado;
+}
+int sPersona_getId(sPersona* this)
+{
+    int id = 0;
+
+    if(this != NULL)
+    {
+        this -> id = id;
+    }
+
+    return id;
+}
+
+int sPersona_setGender(sPersona* this, char* genero)
+{
+    int estado = 0;
+    if(this != NULL)
+    {
+        estado = 1;
+        strcpy(this->genero, genero);
+    }
+
+    return estado;
+}
+
+char* sPersona_getGender(sPersona* this)
+{
+    char* genero = "-1";
+
+    if(this != NULL)
+    {
+        strcpy(genero, this -> genero);
+    }
+
+    return genero;
+}
+
+void mostrar(sPersona* this)
+{
+       printf("%4d - %-s, %-10s \t- %-s\n", this->id, this->nombre, this->apellido, this->genero);
 }
